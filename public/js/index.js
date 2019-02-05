@@ -3,6 +3,10 @@ socket.on('connect', (client)=>{
     console.log("conncetion established");
 });
 
-client.on('disconnect', ()=>{
+socket.on('disconnect', ()=>{
     console.log("connection closed");
+});
+
+socket.on('newEmail', function(data){
+    console.log("recieved new email", data);
 });

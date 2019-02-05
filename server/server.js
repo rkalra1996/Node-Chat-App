@@ -21,6 +21,13 @@ app.use(express.static(publicPath));
 client.on('connection', (socket)=>{
     console.warn("A new socket is now active");
     socket.on('disconnect', () => {console.log("user disconnected")});
+
+    //emit a custom event
+    socket.emit('newEmail', {
+        from : 'RishabhKalra@gmail.com',
+        text : 'Hie, this is rishabh kalra. Reporing for duty.',
+        date : new Date().toString()
+    });
 });
 
 server.listen(port, ()=>{
