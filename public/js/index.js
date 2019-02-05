@@ -7,16 +7,11 @@ socket.on('disconnect', ()=>{
     console.log("connection closed");
 });
 
-socket.on('newEmail', function(data){
-    console.log("recieved new email", data);
+socket.on('newMessage', function(data){
+    console.log("recieved new message", data);
 });
 
-socket.emit('createEmail', {
-    from : "Rishabhkalra96@gmail.com",
+socket.emit('createMessage', {
     to : "RishabhKalra@gmail.com",
     body: "thanks for reporting"
-});
-
-socket.on('emailSent', function(){
-    console.log("email sent successfully");
 });

@@ -23,17 +23,15 @@ client.on('connection', (socket)=>{
     socket.on('disconnect', () => {console.log("user disconnected")});
 
     //emit a custom event
-    socket.emit('newEmail', {
+    socket.emit('newMessage', {
         from : 'RishabhKalra@gmail.com',
         text : 'Hie, this is rishabh kalra. Reporing for duty.',
-        date : new Date().toString()
+        date : new Date().toLocaleDateString(),
+        time : new Date().toLocaleTimeString()
     });
 
-    socket.on('createEmail', (data)=>{
-        console.log("new email created ", data);
-        setTimeout(()=>{
-            socket.emit('emailSent');
-        },3000)
+    socket.on('createMessage', (data)=>{
+        console.log("new message created ", data);
     });
 });
 
