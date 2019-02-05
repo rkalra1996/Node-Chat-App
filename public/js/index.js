@@ -10,3 +10,13 @@ socket.on('disconnect', ()=>{
 socket.on('newEmail', function(data){
     console.log("recieved new email", data);
 });
+
+socket.emit('createEmail', {
+    from : "Rishabhkalra96@gmail.com",
+    to : "RishabhKalra@gmail.com",
+    body: "thanks for reporting"
+});
+
+socket.on('emailSent', function(){
+    console.log("email sent successfully");
+});

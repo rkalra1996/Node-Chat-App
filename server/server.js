@@ -28,6 +28,13 @@ client.on('connection', (socket)=>{
         text : 'Hie, this is rishabh kalra. Reporing for duty.',
         date : new Date().toString()
     });
+
+    socket.on('createEmail', (data)=>{
+        console.log("new email created ", data);
+        setTimeout(()=>{
+            socket.emit('emailSent');
+        },3000)
+    });
 });
 
 server.listen(port, ()=>{
