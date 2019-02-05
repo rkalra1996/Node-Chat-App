@@ -20,9 +20,8 @@ app.use(express.static(publicPath));
 //listen to socket connection
 client.on('connection', (socket)=>{
     console.warn("A new socket is now active");
+    socket.on('disconnect', () => {console.log("user disconnected")});
 });
-
-client.on('disconnect', () => {console.log("user disconnected")});
 
 server.listen(port, ()=>{
     console.log(`app active on port ${port}`);
