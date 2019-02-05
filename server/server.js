@@ -29,6 +29,11 @@ client.on('connection', (socket)=>{
         date : new Date().toLocaleDateString(),
         time : new Date().toLocaleTimeString()
     });
+    //emit the greeting text to the new connection
+    socket.emit('welcomeText','Rishabh Kalra');
+
+    //broadcast to rest of the connections about the above connection
+    socket.broadcast.emit('newUser', 'Rishabh Kalra');
 
     socket.on('createMessage', (data)=>{
         console.log("new message created ", data);
